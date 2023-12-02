@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    {{-- <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="supplier">Supplier</label>
                                             <input type="text" name="supplier" class="form-control @error('supplier') is-invalid @enderror" id="supplier" placeholder="Supplier" value="{{old('supplier', $barang->supplier)}}" required>
@@ -69,10 +69,10 @@
                                             <span class="invalid-feedback text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="stock">Stock</label>
+                                            <label for="stock">Jumlah</label>
                                             <input type="number" min="1" name="stock" class="form-control @error('stock') is-invalid @enderror" id="stock" placeholder="Stock" value="{{old('stock', $barang->stock)}}" required>
                                             @error('stock')
                                             <span class="invalid-feedback text-danger">{{ $message }}</span>
@@ -83,13 +83,23 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="price">Price</label>
-                                            <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="Price" value="{{old('price', $barang->price)}}" required>
+                                            <label for="price">Tanggal Peminjaman</label>
+                                            <input type="date" name="price" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="Price" value="{{old('price', $barang->price)}}" required>
                                             @error('price')
                                             <span class="invalid-feedback text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                          <label for="tanggal">Tanggal Pengembalian</label>
+                                          <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" id="tanggal" placeholder="tanggal" value="{{old('price')}}" required>
+                                          @error('tanggal')
+                                          <span class="invalid-feedback text-danger">{{ $message }}</span>
+                                          @enderror
+                                        </div>
+                                    </div>
+                
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="note">Note</label>

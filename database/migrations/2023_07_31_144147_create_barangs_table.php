@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('supplier', 100);
             $table->string('stock', 5);
             $table->string('price', 50);
+            $table->string('tanggal', 50);
             $table->text('note');
             $table->timestamps();
         });

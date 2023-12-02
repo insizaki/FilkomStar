@@ -77,10 +77,11 @@ class BarangController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:100|unique:barangs,name,' . $id_barang . ',id_barang',
             'category' => 'required',
-            'supplier' => 'required',
+            // 'supplier' => 'required',
             'stock' => 'required',
             'price' => 'required',
             'note' => 'max:1000',
+            'tanggal' => 'required',
         ]);
 
         $barang = Barang::findOrFail($id_barang);

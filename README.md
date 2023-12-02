@@ -1,4 +1,3 @@
-# Andis Dev
 ## _Turorial Login Register CRUD Laravel 10_
 
 ## Features

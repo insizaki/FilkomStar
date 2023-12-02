@@ -43,9 +43,9 @@
                                             <th>#</th>
                                             <th>Nama</th>
                                             <th>Category</th>
-                                            <th>Supplier</th>
-                                            <th>Stock</th>
-                                            <th>Price</th>
+                                            <th>Jumlah</th>
+                                            <th>Tanggal Peminjaman</th>
+                                            <th>Tanggal Pengembalian</th>
                                             <th>Note</th>
                                             <th>Action</th>
                                         </tr>
@@ -56,9 +56,11 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->category }}</td>
-                                                <td> {{ $data->supplier }}</td>
+                                                {{-- <td> {{ $data->supplier }}</td> --}}
                                                 <td>{{ $data->stock }}</td>
-                                                <td>Rp. {{ number_format($data->price, 0) }}</td>
+                                                <td>{{ ($data->price ) }}</td>
+                                                <td>{{ ($data->tanggal ) }}</td>
+
                                                 <td>{{ $data->note }}</td>
                                                 <td>
                                                     <form class="d-inline" action="/barang/{{ $data->id_barang }}/edit"

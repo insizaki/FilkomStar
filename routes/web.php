@@ -23,8 +23,16 @@ Route::post('/register', [AuthController::class, 'process']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 // route dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
+    // Route admin dashboard
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard']);
+        Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+    });
+});
 //route barang
 Route::resource('/barang', BarangController::class)->middleware('auth');
+
+
