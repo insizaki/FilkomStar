@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    
     public function index()
     {
 
@@ -37,6 +38,21 @@ class AuthController extends Controller
             Alert::error('Error', 'Login failed !');
             return redirect('/login');
         }
+    //     if (Auth::attempt($credentials)) {
+    //     $request->session()->regenerate();
+
+    //     if (auth()->user()->isAdmin()) {
+    //         // Redirect to admin dashboard
+    //         return redirect()->intended('/admin/dashboard');
+    //     } else {
+    //         // Redirect to mahasiswa dashboard
+    //         return redirect()->intended('/mahasiswa/dashboard');
+    //     }
+    // } else {
+    //     Alert::error('Error', 'Login failed !');
+    //     return redirect('/login');
+    // }
+
     }
 
     public function register()

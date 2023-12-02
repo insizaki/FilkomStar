@@ -21,7 +21,7 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    protected $guarded = ['id_user'];
+    protected $guarded = ['id_user', 'role'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,4 +46,5 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+
 }

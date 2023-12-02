@@ -40,8 +40,17 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+    
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins', // Sesuaikan dengan nama provider admin yang akan kita buat
+        ],
+    
+        'mahasiswa' => [
+            'driver' => 'session',
+            'provider' => 'mahasiswas', // Sesuaikan dengan nama provider mahasiswa yang akan kita buat
+        ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -64,13 +73,17 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+    
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class, // Sesuaikan dengan model admin yang akan Anda buat
+        ],
+    
+        'mahasiswas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Mahasiswa::class, // Sesuaikan dengan model mahasiswa yang akan Anda buat
+        ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

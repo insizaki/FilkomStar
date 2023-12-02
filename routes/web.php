@@ -22,17 +22,19 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'process']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
-// route dashboard
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
-
-    // Route admin dashboard
-    Route::middleware(['admin'])->group(function () {
-        Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard']);
-        Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
-    });
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard']);
+    // Add other admin routes as needed
 });
+
+// Mahasiswa routes
+Route::middleware(['auth', 'mahasiswa'])->group(function () {
+    Route::get('/mahasiswa/dashboard', [DashboardController::class, 'mahasiswaDashboard']);
+    // Add other mahasiswa routes as needed
+});
+// route dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+
 //route barang
 Route::resource('/barang', BarangController::class)->middleware('auth');
-
-

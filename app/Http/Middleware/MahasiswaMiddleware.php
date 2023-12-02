@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class MahasiswaMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,9 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && auth()->user()->isAdmin()) {
+        if (auth('mahasiswa')->check() && auth('mahasiswa')->user()->isMahasiswa()) {
             return $next($request);
         }
-        return redirect('/dashboard'); // Ganti dengan halaman atau tindakan yang sesuai
+        return redirect('/mahasiswa/dashboard'); // Sesuaikan dengan halaman atau tindakan yang sesuai
     }
 }
