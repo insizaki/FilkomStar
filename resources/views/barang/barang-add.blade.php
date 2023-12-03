@@ -60,7 +60,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  {{-- <div class="col-lg-6">
+                  <div class="col-lg-6">
                     <div class="form-group">
                       <label for="supplier">Supplier</label>
                       <input type="text" name="supplier" class="form-control @error('supplier') is-invalid @enderror" id="supplier" placeholder="Supplier" value="{{old('supplier')}}" required>
@@ -68,7 +68,7 @@
                       <span class="invalid-feedback text-danger">{{ $message }}</span>
                       @enderror
                     </div>
-                  </div> --}}
+                  </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="stock">Jumlah</label>
